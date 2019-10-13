@@ -23,7 +23,7 @@ Defult login: ubuntu / ubuntu
 
 #### Odroid N2
 
-[https://wiki.odroid.com/odroid-n2/os_images/ubuntu/20190329](https://wiki.odroid.com/odroid-n2/os_images/ubuntu/20190329)
+[http://de.eu.odroid.in/ubuntu_18.04lts/N2/ubuntu-18.04.3-4.9-minimal-odroid-n2-20190806.img.xz](http://de.eu.odroid.in/ubuntu_18.04lts/N2/ubuntu-18.04.3-4.9-minimal-odroid-n2-20190806.img.xz)
 
 Defult login: odroid / odroid
 
