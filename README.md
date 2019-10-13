@@ -84,10 +84,10 @@ logNode
 
 to kill the current node
 ```
-logNode 
+killNode 
 ```
 
 to start a new node
 ```
-logNode 
+startNode 
 ```
