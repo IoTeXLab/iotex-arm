@@ -1,0 +1,7 @@
+sudo echo "23" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio23/direction
+
+chgrp -R ubuntu /sys/class/gpio
+chmod -R g+rw /sys/class/gpio
+
+

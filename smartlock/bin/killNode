@@ -1,0 +1,2 @@
+docker kill iotex
+docker rm iotex

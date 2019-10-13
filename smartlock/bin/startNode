@@ -1,0 +1,13 @@
+docker run -d --restart on-failure --name iotex \
+        -p 4689:4689 \
+        -p 8080:8080 \
+	-p 14014:14014 \
+        -v=/home/ubuntu/iotex-var/data:/var/data:rw \
+        -v=/home/ubuntu/iotex-var/log:/var/log:rw \
+        -v=/home/ubuntu/iotex-var/etc/config.yaml:/etc/iotex/config_override.yaml:ro \
+        -v=/home/ubuntu/iotex-var/etc/genesis.yaml:/etc/iotex/genesis.yaml:ro \
+        iotexlab/iotex-core-arm:v0.8.3 \
+        iotex-server \
+        -config-path=/etc/iotex/config_override.yaml \
+        -genesis-path=/etc/iotex/genesis.yaml \
+	-plugin=gateway
