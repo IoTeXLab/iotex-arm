@@ -47,7 +47,7 @@ echo -e '\e[46mDownloading latest blockchain snapshot...\e[49m'
 curl -L https://t.iotex.me/mainnet-data-with-idx-latest > $IOTEX_HOME/data.tar.gz
 
 echo -e '\e[46mExtracting the snapshot, please be patient...\e[49m'
-tar -xzf data.tar.gz
+tar -xvzf data.tar.gz
 
 ip=$(wget http://ipinfo.io/ip -qO -)
 

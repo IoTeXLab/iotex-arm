@@ -1,1 +1,1 @@
-docker logs -f iotex | grep height
+docker logs -f --since 1m iotex | jq
