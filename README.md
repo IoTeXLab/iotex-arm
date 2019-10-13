@@ -8,7 +8,7 @@ Tested on the following boards:
 ### Download latest Ubuntu for your board
 #### Raspberry Pi 3 b+
 
-[http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-preinstalled-server-arm64+raspi3.img.xz]()
+[http://cdimage.ubuntu.com/ubuntu/releases/19.04/release/ubuntu-19.04-preinstalled-server-arm64+raspi3.img.xz]()
 
 Defult login: ubuntu / ubuntu
 
