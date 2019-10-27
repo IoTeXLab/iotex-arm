@@ -6,7 +6,7 @@ docker run -d --restart on-failure --name iotex \
         -v=$HOME/iotex-var/log:/var/log:rw \
         -v=$HOME/iotex-var/etc/config.yaml:/etc/iotex/config_override.yaml:ro \
         -v=$HOME/iotex-var/etc/genesis.yaml:/etc/iotex/genesis.yaml:ro \
-        iotexlab/iotex-core-arm:v0.8.3 \
+        iotexlab/iotex-core-arm:v0.9.2 \
         iotex-server \
         -config-path=/etc/iotex/config_override.yaml \
         -genesis-path=/etc/iotex/genesis.yaml \
