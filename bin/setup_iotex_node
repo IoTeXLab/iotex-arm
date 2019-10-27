@@ -4,6 +4,11 @@ title () {
   echo -e '\e[46m'$1'\e[49m'
 }
 
+lastRelease=$(curl --silent "https://api.github.com/repos/iotexproject/iotex-core/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+
+title 'Latest iotex-core release is '$lastRelease
+echo $lastRelease > ~/iotex-arm/bin/lastRelease
+echo '----------'
 
 cd ~
 
@@ -23,14 +28,15 @@ sudo apt install htop jq gawk git  -y
 #go get github.com/fullstorydev/grpcurl
 #go install github.com/fullstorydev/grpcurl/cmd/grpcurl
 
+
 title 'Installing docker'
 curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker $(whoami)
 
-echo -e '\e[46mPulling IoTeXLab iotex-core-arm image\e[49m'
-sudo docker pull iotexlab/iotex-core-arm:v0.9.2
+title 'Pulling IoTeXLab iotex-core-arm Docker image'
+sudo docker pull iotexlab/iotex-core-arm:$latestRelease
 
-echo -e '\e[46mCreating files & folders...\e[49m'
+title 'Creating IoTeX folders...'
 mkdir -p ~/iotex-var
 cd ~/iotex-var
 
@@ -40,19 +46,22 @@ mkdir -p $IOTEX_HOME/data
 mkdir -p $IOTEX_HOME/log
 mkdir -p $IOTEX_HOME/etc
 
+echo 'OK'
+title 'Downloading config and genesis files'
+
 curl https://raw.githubusercontent.com/iotexproject/iotex-bootstrap/master/config_mainnet.yaml > $IOTEX_HOME/etc/config.yaml
 curl https://raw.githubusercontent.com/iotexproject/iotex-bootstrap/master/genesis_mainnet.yaml > $IOTEX_HOME/etc/genesis.yaml
 
-echo -e '\e[46mDownloading latest blockchain snapshot...\e[49m'
+title 'Downloading latest blockchain data snapshot...'
 curl -L https://t.iotex.me/mainnet-data-with-idx-latest > $IOTEX_HOME/data.tar.gz
 
-echo -e '\e[46mExtracting the snapshot, please be patient...\e[49m'
+title 'Extracting the snapshot, please be patient this will take some time...'
 tar -xvzf data.tar.gz
 
 ip=$(wget http://ipinfo.io/ip -qO -)
 
 title 'Your Ip is '$ip
-echo 'Editing the config file'
+title 'Editing the config file'
 sed -i '2s/.*/  externalHost: '$ip'/' $IOTEX_HOME/etc/config.yaml
 
 title "Starting the node..."
@@ -60,7 +69,7 @@ sudo ~/iotex-arm/bin/startNode
 
 title 'Your node should be running now'
 title 'Please logout and login again to have your docker privileges take effect'
-title 'After you login again you can:'
-title 'Run startLogs to see the node logs!'
-title 'Run killNode to stop the node!'
-echo 'Run startNew to start the node!'
+title 'After you login again you can run:'
+echo 'logNode to see the node logs!'
+echo 'killNode to stop the node!'
+echo 'startNew to start the node!'
