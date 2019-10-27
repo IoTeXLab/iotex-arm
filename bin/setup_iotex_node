@@ -28,7 +28,7 @@ curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker $(whoami)
 
 echo -e '\e[46mPulling IoTeXLab iotex-core-arm image\e[49m'
-sudo docker pull iotexlab/iotex-core-arm:v0.8.3
+sudo docker pull iotexlab/iotex-core-arm:v0.9.2
 
 echo -e '\e[46mCreating files & folders...\e[49m'
 mkdir -p ~/iotex-var
