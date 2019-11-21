@@ -1,4 +1,4 @@
-lastRelease=$(cat ~/iotex-arm/bin/lastRelease)
+lastRelease=$(curl --silent "https://api.github.com/repos/iotexproject/iotex-core/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 docker run -d --restart on-failure --name iotex \
         -p 4689:4689 \
         -p 8080:8080 \
