@@ -33,12 +33,13 @@ title 'Installing docker'
 #curl -sSL https://get.docker.com | sh
 #sudo usermod -aG docker $(whoami)
 
-title 'Pulling IoTeXLab iotex-core-arm Docker image'
-sudo docker pull iotexlab/iotex-core-arm:$lastRelease
+title 'Pulling IoTeX iotex-core Docker image for ARM64'
+sudo docker pull iotex/iotex-core:arm64-$lastRelease
 
-title 'Creating IoTeX folders...'
-mkdir -p ~/iotex-var
-cd ~/iotex-var
+# Not required if we mounted a USB disk in iotex-var already
+#title 'Creating IoTeX folders...'
+#mkdir -p ~/iotex-var
+#cd ~/iotex-var
 
 export IOTEX_HOME=$PWD
 
