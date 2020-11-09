@@ -30,8 +30,8 @@ sudo apt install htop jq gawk git  -y
 
 
 title 'Installing docker'
-#curl -sSL https://get.docker.com | sh
-#sudo usermod -aG docker $(whoami)
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker $(whoami)
 
 title 'Pulling IoTeX iotex-core Docker image for ARM64'
 sudo docker pull iotex/iotex-core:arm64-$lastRelease
