@@ -1,5 +1,0 @@
-#!/bin/bash
-address=$(cat address)
-server=$(ioctl config get endpoint | cut -f1 -d " " )
-
-grpcurl -plaintext -d '{"address": "'$address'"}' $server iotexapi.APIService.GetAccount | jq -r .accountMeta.numActions 
